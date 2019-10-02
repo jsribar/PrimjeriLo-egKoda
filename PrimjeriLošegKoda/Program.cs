@@ -16,8 +16,17 @@ namespace PrimjeriLošegKoda
 
         public static string link;
         public static string link1;
+        static string originalniJezik;
 
-        static string napraviLink(string tekstZaPrijevod, string originalniJezik, string jezik)
+        public static string ZahtjevIOdgovor(string tekstZaPrijevod, string jezik)
+        {
+            string spremnik = SlanjeZahtjeva(tekstZaPrijevod, jezik);
+            spremnik = Obrada_odgovora(spremnik);
+            return spremnik;
+        }
+
+
+        static string SlanjeZahtjeva(string tekstZaPrijevod, string jezik)
         {
             tekstZaPrijevod = tekstZaPrijevod.Replace(" ", "%20");
             if (tekstZaPrijevod.Length == tekstZaPrijevod.LastIndexOf("%20")) { tekstZaPrijevod.Remove(tekstZaPrijevod.Length - 1); }
